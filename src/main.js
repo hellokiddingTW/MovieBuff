@@ -8,6 +8,9 @@ import { Swipe, SwipeItem } from 'vue-swipe'
 import $ from "jquery";
 window.$ = $;
 
+// set baseUrl123
+axios.defaults.baseURL = 'https://mb-database.herokuapp.com/';
+
 Vue.use(VueAxios, axios) //使axios能在其他的元件裡被使用
 Vue.config.productionTip = false
 

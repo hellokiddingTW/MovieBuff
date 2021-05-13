@@ -229,6 +229,7 @@ export default {
     },
     goBooking(movieId) {
       console.log("asacas", movieId);
+      $("#movieInfo").modal("hide");
       this.$router.push(`/booking/${movieId}`);
     },
     consoleFun() {
