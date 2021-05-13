@@ -17,7 +17,7 @@
               >
                 <li
                   class="border-bottom"
-                  @click="handleMoiveStatus({id:item.id,type:'List'})"
+                  @click="handleMoiveStatus({ id: activeId, type: 'List' })"
                 >
                   <button href="#" class="d-inline mr-2 btn" title="新增至清單">
                     <span
@@ -31,7 +31,7 @@
                 </li>
                 <li
                   class="border-bottom"
-                   @click="handleMoiveStatus({id:item.id,type:'Fav'})"
+                  @click="handleMoiveStatus({ id: activeId, type: 'Fav' })"
                 >
                   <button href="#" class="d-inline mr-2 btn" title="加入最愛">
                     <span
@@ -43,12 +43,11 @@
                     加入最愛
                   </button>
                 </li>
-                <li 
-                 @click="handleMoiveStatus({id:item.id,type:'ToSee'})">
+                <li @click="handleMoiveStatus({ id: activeId, type: 'ToSee' })">
                   <button
                     href="#"
                     class="d-inline mr-2 btn"
-                    title="新增至待看清單"                    
+                    title="新增至待看清單"
                   >
                     <span
                       class="material-icons iconColor align-bottom mr-2 font-weight-bold"
@@ -62,7 +61,13 @@
               </ul>
             </a>
           </div>
-          <a href="#" @click="getMovieInfo(item.id);getActor(item.id)">
+          <a
+            href="#"
+            @click="
+              getMovieInfo(item.id);
+              getActor(item.id);
+            "
+          >
             <img
               :src="`https://image.tmdb.org/t/p/w200${item.poster_path}`"
               alt="#"
@@ -118,23 +123,11 @@ export default {
       nowList: [],
       movie: {},
       activeId: "",
-      actors:[],
+      actors: [],
       // openId:null,
     };
   },
-  watch:{
-   activeId: async function(id){
-   this.movie = this.nowList.find((movie) => this.activeId === id);
-      const statusArr = await getMovieStatus(this.$http, id);
-      const arr = ["List", "Fav", "ToSee"];
-      arr.forEach((type, index) => {
-        this.movie = {
-          ...this.movie,
-          [type]: statusArr[index],
-        };
-      });
-      }
-    },
+
   methods: {
     getNowPlay() {
       const api = `https://api.themoviedb.org/3/movie/now_playing?api_key=551d624345faddc0074c98e32cf2a66e&language=en-US&page=${this.page}`;
@@ -157,13 +150,23 @@ export default {
       $("#movieInfo").modal("show");
     },
 
-    handleActive(e, id) {
+    async handleActive(e, id) {
       e.stopPropagation();
       if (this.activeId === id) {
         this.activeId = "";
       } else {
+        this.movie = this.nowList.find((movie) => movie.id === id);
+        const statusArr = await getMovieStatus(this.$http, id);
+        const arr = ["List", "Fav", "ToSee"];
+        arr.forEach((type, index) => {
+          this.movie = {
+            ...this.movie,
+            [type]: statusArr[index],
+          };
+        });
         this.activeId = id;
       }
+
       document.addEventListener("click", () => {
         this.activeId = "";
       });
@@ -185,7 +188,7 @@ export default {
           ...payload,
           movie: this.movie,
         });
-        console.log(newMovie);
+        console.log("yyfufuy", newMovie);
         this.movie = newMovie;
       } catch (err) {
         console.log("toggle movie error", err);
@@ -194,7 +197,7 @@ export default {
 
     // toggleToList({id, type}) {
     //   if (!this.movie[type]) {
-    //     const api = `http://localhost:3000/movieBuff/${type}`;
+    //     const api = `/movieBuff/${type}`;
     //     this.$http
     //       .post(api, {
     //         name: this.movie.original_title,
@@ -208,7 +211,7 @@ export default {
     //         console.log("已加入清單");
     //       });
     //   } else {
-    //     const api = `http://localhost:3000/movieBuff/${type}/${id}`;
+    //     const api = `/movieBuff/${type}/${id}`;
     //     this.$http.delete(api).then((response) => {
     //       console.log(response.data.message);
     //       console.log(this.movie);

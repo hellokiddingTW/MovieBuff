@@ -3,7 +3,7 @@
     async toggleToList({movie, id, type}) {
       console.log('movie',movie,'id',id,'type',type)
       if (!movie[type]) {
-        const api = `http://localhost:3000/movieBuff/${type}`;
+        const api = `/movieBuff/${type}`;
         await this.$http.post(api, {
             name: this.movie.original_title,
             movieID: id,
@@ -19,7 +19,7 @@
             [type]: true,
         };
       } else {
-        const api = `http://localhost:3000/movieBuff/${type}/${id}`;
+        const api = `/movieBuff/${type}/${id}`;
         const response = await this.$http.delete(api)
         console.log(response.data.message);
         console.log(movie);

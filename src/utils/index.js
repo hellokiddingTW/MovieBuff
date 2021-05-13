@@ -1,8 +1,8 @@
 export const getMovieStatus = async (axios, id) => {
     let apiArr = [
-        `http://localhost:3000/movieBuff/List/${id}`,
-        `http://localhost:3000/movieBuff/Fav/${id}`,
-        `http://localhost:3000/movieBuff/ToSee/${id}`
+        `/movieBuff/List/${id}`,
+        `/movieBuff/Fav/${id}`,
+        `/movieBuff/ToSee/${id}`
     ]
 
     return await Promise.all(apiArr.map(async (url) => {
@@ -15,7 +15,7 @@ export const getMovieStatus = async (axios, id) => {
         }
     }))
 
-    // const listapi = `http://localhost:3000/movieBuff/List/${id}`;
+    // const listapi = `/movieBuff/List/${id}`;
     //   this.$http.get(listapi).then((response) => {
     //     if (response.data) {
     //       this.movie = {
@@ -29,7 +29,7 @@ export const getMovieStatus = async (axios, id) => {
     //       };
     //     }
     //   });
-    //   const favapi = `http://localhost:3000/movieBuff/Fav/${id}`;
+    //   const favapi = `/movieBuff/Fav/${id}`;
     //   this.$http.get(favapi).then((response) => {
     //     if (response.data) {
     //       this.movie = {
@@ -43,7 +43,7 @@ export const getMovieStatus = async (axios, id) => {
     //       };
     //     }
     //   });
-    //   const toSeeapi = `http://localhost:3000/movieBuff/ToSee/${id}`;
+    //   const toSeeapi = `/movieBuff/ToSee/${id}`;
     //   this.$http.get(toSeeapi).then((response) => {
     //     if (response.data) {
     //       this.movie = {

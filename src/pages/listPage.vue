@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     getList() {
-      const api = `http://localhost:3000/movieBuff/${this.mySelect}`;
+      const api = `/movieBuff/${this.mySelect}`;
       this.$http.get(api).then((response) => {
         this.showList = response.data;
         console.log(response.data);
@@ -112,7 +112,7 @@ export default {
 
     async delItem(id, type) {
       console.log("1111");
-      const api = `http://localhost:3000/movieBuff/${type}/${id}`;
+      const api = `/movieBuff/${type}/${id}`;
       await this.$http.delete(api).then((response) => {
         console.log(response.data);
         this.getList();
@@ -121,8 +121,8 @@ export default {
 
     async addtoList(item, type) {
       console.log(item);
-      const api = `http://localhost:3000/movieBuff/${type}/${item.movieID}`;
-      const url = `http://localhost:3000/movieBuff/${type}`;
+      const api = `/movieBuff/${type}/${item.movieID}`;
+      const url = `/movieBuff/${type}`;
       const res = await this.$http.get(api);
       console.log("res", res);
       if (res.data) {
@@ -148,7 +148,7 @@ export default {
   computed: {
     // showingList(type) {
     //   if (this.mySelect === type) {
-    //     const api = `http://localhost:3000/movieBuff/${type}`;
+    //     const api = `/movieBuff/${type}`;
     //     this.$http.get(api).then((response) => {});
     //   }
     // },
