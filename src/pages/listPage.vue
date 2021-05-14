@@ -59,7 +59,7 @@
                 class="d-inline btn"
                 title="加入最愛"
                 v-if="mySelect === 'List' || mySelect === 'ToSee'"
-                @click="addtoList(item, 'Fav');isActive= !isActive"        
+                @click="addtoList(item, 'Fav'); isActive= !isActive"        
               >
                 <span class="material-icons iconDec iconColor" :class="{clicked : isActive}"> favorite </span>
               </button>
@@ -144,6 +144,7 @@ export default {
         }
       }
     },
+    
   },
   computed: {
     // showingList(type) {

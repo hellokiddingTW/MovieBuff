@@ -232,9 +232,7 @@ export default {
       $("#movieInfo").modal("hide");
       this.$router.push(`/booking/${movieId}`);
     },
-    consoleFun() {
-      console.log("111");
-    },
+
   },
   created() {
     this.getGenre();
