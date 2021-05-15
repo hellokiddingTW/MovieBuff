@@ -179,9 +179,18 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
@@ -200,8 +209,14 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '威秀影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '威秀影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '威秀影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '威秀影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
@@ -209,9 +224,18 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
@@ -248,7 +272,10 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '威秀影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '威秀影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <p class="rowNumber ml-2 text-right">D</p>
@@ -265,12 +292,21 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
-              <div class="seat" ></div>
-              <div class="seat" ></div>
-              <div class="seat" ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
@@ -291,7 +327,10 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '威秀影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '威秀影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
@@ -302,7 +341,10 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '威秀影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '威秀影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
@@ -318,23 +360,51 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat " :class="{occupied : (theater === '威秀影城' || theater === '秀泰影城')}"></div>
-              <div class="seat " :class="{occupied : (theater === '威秀影城' || theater === '秀泰影城')}"></div>
-              <div class="seat " :class="{occupied : (theater === '威秀影城')}"></div>
-              <div class="seat " :class="{occupied : (theater === '威秀影城')}"></div>
+              <div
+                class="seat"
+                :class="{
+                  occupied: theater === '威秀影城' || theater === '秀泰影城',
+                }"
+              ></div>
+              <div
+                class="seat"
+                :class="{
+                  occupied: theater === '威秀影城' || theater === '秀泰影城',
+                }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '威秀影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '威秀影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
@@ -348,23 +418,47 @@
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '秀泰影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '秀泰影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <div class="seat"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
-              <div class="seat" :class="{occupied : (theater === '美麗華影城')}"></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
+              <div
+                class="seat"
+                :class="{ occupied: theater === '美麗華影城' }"
+              ></div>
               <div class="seat"></div>
               <div class="seat"></div>
               <p class="rowNumber ml-2 text-right">H</p>
