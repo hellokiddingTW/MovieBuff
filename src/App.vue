@@ -18,7 +18,6 @@ export default {
 </script>
 
 <style lang='scss'>
-
 @import "./assets/all";
 @import '../node_modules/vue-swipe/dist/vue-swipe.css';
 
