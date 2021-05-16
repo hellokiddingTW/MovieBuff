@@ -6,6 +6,7 @@ import VueAxios from 'vue-axios'
 import 'bootstrap'
 import { Swipe, SwipeItem } from 'vue-swipe'
 import $ from "jquery";
+import './assets/fonts/fonts.css'
 window.$ = $;
 
 // set baseUrl123

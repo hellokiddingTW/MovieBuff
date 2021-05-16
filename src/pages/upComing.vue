@@ -103,7 +103,6 @@ export default {
       this.$http.get(api).then((response) => {
         this.movies = this.movies.concat(response.data.results);
         this.totalPage = response.data.total_pages;
-        console.log(this.movies);
         if (this.num < this.totalPage) {
           this.num++;
           this.getMovies();
@@ -111,11 +110,13 @@ export default {
         this.upComingMovies = this.movies.filter(
           (movie) => new Date().getTime() < new Date(movie.release_date)
         );
+        // console.log(this.upComingMovies)
         this.upComingMovies.sort(
           (a, b) => Date.parse(a.release_date) - Date.parse(b.release_date)
         );
       });
     },
+  
 
  async getMovieInfo(id) {
       this.movie = this.movies.find((movie) => movie.id === id);
@@ -153,31 +154,31 @@ export default {
         console.log(this.actors);
       });
     },
-    pagiButton(num) {
-      this.page = num;
-      this.getMovies();
-    },
-    nextPage(nowPage) {
-      this.page = nowPage + 1;
-      this.getMovies();
-    },
+    // pagiButton(num) {
+    //   this.page = num;
+    //   this.getMovies();
+    // },
+    // nextPage(nowPage) {
+    //   this.page = nowPage + 1;
+    //   this.getMovies();
+    // },
 
-    nextTenPages() {
-      this.page = Math.floor((this.page - 1) / 10) * 10 + 11;
-      console.log("next", this.page);
-      this.getMovies();
-    },
-    prePage(nowPage) {
-      this.page = nowPage - 1;
-      this.getMovies();
-    },
+    // nextTenPages() {
+    //   this.page = Math.floor((this.page - 1) / 10) * 10 + 11;
+    //   console.log("next", this.page);
+    //   this.getMovies();
+    // },
+    // prePage(nowPage) {
+    //   this.page = nowPage - 1;
+    //   this.getMovies();
+    // },
 
-    preTenPages() {
-      if (this.page < 11) return;
-      this.page = Math.floor((this.page - 1) / 10) * 10 - 9;
-      console.log("pre", this.page);
-      this.getMovies();
-    },
+    // preTenPages() {
+    //   if (this.page < 11) return;
+    //   this.page = Math.floor((this.page - 1) / 10) * 10 - 9;
+    //   console.log("pre", this.page);
+    //   this.getMovies();
+    // },
   },
   created() {
     this.getMovies();

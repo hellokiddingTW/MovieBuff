@@ -12,7 +12,7 @@
 
         <div class="modal-content pb-5">
           <div class="modal-header border-0 p-2">
-              <h3 class="modal-title" id="exampleModalLabel">{{videoProp.title}}</h3>
+              <!-- <h3 class="modal-title" id="exampleModalLabel">{{videoProp.title}}</h3> -->
             <button
               type="button"
               class="close text-white"

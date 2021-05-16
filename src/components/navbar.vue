@@ -4,20 +4,20 @@
       <nav class="navbar navbar-expand-md navbar-white px-5">
         <div class="flex-grow-1">
           <router-link class="navbar-brand text-center" href="#" to="/"
-            ><h1 class="m-0 text-white bt"> <span class="mr-2">M O V I E</span> <span>B U F F</span></h1></router-link
+            ><h1 class="m-0 text-white fontBlern"> <span class="mr-2">M O V I E</span> <span>B U F F</span></h1></router-link
           >
         </div>
         <div>
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <router-link class="nav-link fz-4 text-white bt" href="#"
+              <router-link class="nav-link fz-4 text-white fontBlern" href="#"
                to="/"
                 >home <span class="sr-only">(current)</span></router-link
               >
             </li>
             <li class="nav-item">
               <router-link
-                class="nav-link fz-4 text-white bt"
+                class="nav-link fz-4 text-white fontBlern"
                 href="#"
                 to="/upComimg"
                 >UpComing</router-link
@@ -25,7 +25,7 @@
             </li>
             <li class="nav-item">
               <router-link
-                class="nav-link fz-4 text-white bt"
+                class="nav-link fz-4 text-white fontBlern"
                 href="#"
                 to="/nowPlaying"
                 >NowPlaying</router-link
@@ -33,7 +33,7 @@
             </li>
             <li class="nav-item">
               <router-link
-                class="nav-link fz-4 text-white bt"
+                class="nav-link fz-4 text-white fontBlern"
                 href="#"
                 to="/listPage"
                 >MyList</router-link
@@ -69,5 +69,8 @@ export default {
 <style lang="scss" scoped>
 a{
   &:hover{text-decoration: none;}
+}
+.fontBlern{
+  font-family: Blern-Regular;
 }
 </style>

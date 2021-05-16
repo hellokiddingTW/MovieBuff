@@ -181,7 +181,6 @@ ul {
   color: #ffffff;
   background-color: #00000080;
   width: 80%;
-  font-family: Blern11;
 }
 
 .starRating {
