@@ -92,7 +92,10 @@ export default {
       showList: [],
       mySelect: "ToSee",
       movie: [],
-      isActive:false
+      isActive:false,
+      List:[],
+      Fav:[],
+      ToSee:[]
     };
   },
   watch: {
@@ -127,6 +130,7 @@ export default {
       console.log("res", res);
       if (res.data) {
         alert("已在清單中");
+        return
       } else {
         await this.$http.post(url, {
           name: item.name,
@@ -144,6 +148,26 @@ export default {
         }
       }
     },
+
+   async getAllList(){
+      let urlArr = [
+        `/movieBuff/List`,
+        `/movieBuff/Fav`,
+        `/movieBuff/ToSee`
+    ]
+    let newArr =  await Promise.all(urlArr.map(async (url) => {
+        const res = await this.$http.get(url)
+       return res.data
+       
+    }))
+    console.log('NA' ,newArr)
+    if(newArr){
+      [this.List, this.Fav, this.ToSee] = newArr
+    }
+    
+   
+    
+    }
     
   },
   computed: {
@@ -156,6 +180,7 @@ export default {
   },
   created() {
     this.getList();
+    this.getAllList()
   },
 };
 </script>
