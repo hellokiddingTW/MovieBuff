@@ -2,6 +2,8 @@
 
 <template>
   <div class="container text-white">
+         <loading :active.sync="isLoading" 
+        ></loading>
     <swipe class="my-swipe container" :speed="1000" :auto="5000" @change="onMovieChange">
       <h2>近期推薦電影</h2>
       <swipe-item
@@ -85,18 +87,22 @@ export default {
       trailers: [],
       actors: [],
       videoAddress: "",
+      isLoading:false
     };
   },
   methods: {
     getPopular() {
+      this.isLoading = true;
       const api = `https://api.themoviedb.org/3/movie/popular?api_key=551d624345faddc0074c98e32cf2a66e&language=en-US&page=1`;
       this.$http.get(api).then((response) => {
         this.popularMovie = response.data.results;
         console.log(`popular:`, this.popularMovie);
+         this.isLoading = false;
       });
     },
   
     async getMovieInfo(id) {
+      this.isLoading = true;
       this.movie = this.popularMovie.find((movie) => movie.id === id);
       const statusArr = await getMovieStatus(this.$http, id)
       const arr = ['List', 'Fav', 'ToSee']
@@ -106,6 +112,7 @@ export default {
           [type]: statusArr[index]
         }
       })
+      this.isLoading = false;
       $("#movieInfo").modal("show");
     },
 

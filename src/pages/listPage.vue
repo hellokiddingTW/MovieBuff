@@ -9,6 +9,8 @@
       </select>
     </div>
     <ul>
+       <loading :active.sync="isLoading" 
+        ></loading>
       <li v-for="item in showList" :key="item.id">
         <div class="listCard mt-5 p-4 d-flex">
           <div class="mr-4">
@@ -95,7 +97,8 @@ export default {
       isActive:false,
       List:[],
       Fav:[],
-      ToSee:[]
+      ToSee:[],
+      isLoading:false
     };
   },
   watch: {
@@ -114,7 +117,6 @@ export default {
     },
 
     async delItem(id, type) {
-      console.log("1111");
       const api = `/movieBuff/${type}/${id}`;
       await this.$http.delete(api).then((response) => {
         console.log(response.data);
@@ -155,6 +157,7 @@ export default {
         `/movieBuff/Fav`,
         `/movieBuff/ToSee`
     ]
+     this.isLoading = true;
     let newArr =  await Promise.all(urlArr.map(async (url) => {
         const res = await this.$http.get(url)
        return res.data
@@ -165,7 +168,7 @@ export default {
       [this.List, this.Fav, this.ToSee] = newArr
     }
     
-   
+    this.isLoading = false;
     
     }
     

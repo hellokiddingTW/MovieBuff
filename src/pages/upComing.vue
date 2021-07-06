@@ -1,5 +1,7 @@
 <template>
   <div class="container test">
+    <loading :active.sync="isLoading" 
+        ></loading>
     <ul class="d-flex flex-wrap justify-content-around">
       <h2 class="text-white w-100">即將上映</h2>
       <li
@@ -94,11 +96,11 @@ export default {
       totalPage: 0,
       upComingMovies: [],
       num: 1,
+      isLoading:false
     };
   },
   methods: {
     getMovies() {
-      let vm = this;
       const api = `https://api.themoviedb.org/3/movie/upcoming?api_key=551d624345faddc0074c98e32cf2a66e&language=en-US&page=${this.num}`;
       this.$http.get(api).then((response) => {
         this.movies = this.movies.concat(response.data.results);
@@ -110,15 +112,16 @@ export default {
         this.upComingMovies = this.movies.filter(
           (movie) => new Date().getTime() < new Date(movie.release_date)
         );
-        // console.log(this.upComingMovies)
         this.upComingMovies.sort(
           (a, b) => Date.parse(a.release_date) - Date.parse(b.release_date)
         );
       });
+      this.isLoading = false;
     },
   
 
  async getMovieInfo(id) {
+      this.isLoading = true;
       this.movie = this.movies.find((movie) => movie.id === id);
       const statusArr = await getMovieStatus(this.$http, id)
       const arr = ['List', 'Fav', 'ToSee']
@@ -129,6 +132,7 @@ export default {
         }
       })
       console.log(this.movie)
+      this.isLoading = false;
       $("#movieInfo").modal("show");
     },
     

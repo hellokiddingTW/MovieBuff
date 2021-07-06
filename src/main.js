@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import axios from 'axios' //主要的AJAX套宴
 import VueAxios from 'vue-axios'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css'
 import 'bootstrap'
 import { Swipe, SwipeItem } from 'vue-swipe'
 import $ from "jquery";
@@ -14,7 +16,7 @@ axios.defaults.baseURL = 'https://mb-database.herokuapp.com/';
 
 Vue.use(VueAxios, axios) //使axios能在其他的元件裡被使用
 Vue.config.productionTip = false
-
+Vue.component('Loading', Loading)
 Vue.component('swipe', Swipe);
 Vue.component('swipe-item', SwipeItem); 
 

@@ -95,9 +95,9 @@
               <option value="Miramar">美麗華影城</option>
             </select> -->
           </div>
-          <div class="dateAndTime mt-3 row">
+          <div class="mt-3 row">
             <div class="clendar col-6 no-gutter">
-              <div class="clendarDate dateText">
+              <div class="clendarDate">
                 <p class="dateText border-bottom border-dark py-2">
                   <span>{{ nowDay }}, </span><span>{{ nowMonth }} </span
                   ><span>{{ nowDate }}</span>
@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="theater container-fluid flex-column-centerd">
-            <div class="screen w-100 my-3"></div>
+            <div class="screen w-100 my-2"></div>
             <p class="text-center text-white">S C R E E N</p>
             <div class="seatRow mt-4">
               <p class="rowNumber mr-2 text-left">A</p>
@@ -472,6 +472,9 @@
               <p class="dateText mr-5">Taken</p>
             </div>
           </div>
+            <div class="d-flex justify-content-end">
+            <span class="material-icons nextBtn"> arrow_forward </span>
+          </div>
         </div>
       </div>
     </div>
@@ -628,7 +631,7 @@ export default {
 <style lang="scss" scoped>
 p {
   margin: 0;
-  font-size: 12px;
+  
 }
 
 ul {
@@ -675,6 +678,10 @@ button {
     background: #ff1493;
     color: #000000b3;
   }
+  p{
+    font-size: 10px;
+  }
+ 
 }
 .btnDropdown {
   background-color: #000000cc;
@@ -743,5 +750,13 @@ button {
 
 .seat:nth-last-of-type(6) {
   margin-left: 48px;
+}
+
+.nextBtn {
+  color:#fff;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  padding: 10px;
+  background: #ff1493;
 }
 </style>
